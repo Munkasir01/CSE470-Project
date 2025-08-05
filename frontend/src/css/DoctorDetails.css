@@ -1,0 +1,30 @@
+.doctor-details {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .doctor-details-container {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .doctor-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .doctor-info p {
+    font-size: 16px;
+    margin: 5px 0;
+    line-height: 1.5;
+  }
+  
+  .doctor-info strong {
+    color: #34495e;
+  }
+  
