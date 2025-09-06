@@ -7,6 +7,6 @@ const router = express.Router()
 router.get('/:role/:id', get_user);
 
 
-router.put('/:role/:id', update_user)
+router.patch('/:role/:id', update_user)
 
 module.exports = router

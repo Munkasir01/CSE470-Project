@@ -14,11 +14,18 @@ const CartSchema = mongoose.Schema(
             type: Number,
             required: true,
         },
-        userId: {
-            type: String,
+        user_id: {
+            type: Number,
             required: true,
         },
-        
+        order_no: {
+            type: Number,
+            required: true,
+        },
+        total_price: {
+            type: Number,
+            required: true,
+        },
     },
     {
         timestamps: true,

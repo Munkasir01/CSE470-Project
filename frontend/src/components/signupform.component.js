@@ -144,7 +144,6 @@ const UserForm = () => {
   };
 
   return (
-    <div className="signup-form-container">
     <form className="signup-form" onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
 
@@ -212,16 +211,16 @@ const UserForm = () => {
         >
           Doctor
         </button>
-        {/* <button
+        <button
           type="button"
           className={role === 'Staff' ? 'active' : ''}
           onClick={() => setRole('Staff')}
         >
           Staff
-        </button> */}
+        </button>
       </div>
 
-      {/* {renderSpecialFields()} */}
+      {renderSpecialFields()}
 
       <button type="submit" className="submit-button">
         Sign Up
@@ -229,7 +228,6 @@ const UserForm = () => {
 
       {error && <div className="error">{error}</div>}
     </form>
-  </div>
   );
 };
 
