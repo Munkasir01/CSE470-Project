@@ -1,0 +1,51 @@
+.notification-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 15px;
+  font-family: Arial, sans-serif;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notification-card {
+  background-color: #ffffff;
+  border-left: 5px solid #4caf50; /* green accent for notifications */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.notification-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.notif-type {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.notif-message {
+  font-size: 1rem;
+  color: #555555;
+  margin-bottom: 8px;
+}
+
+.notif-whom {
+  font-size: 0.9rem;
+  color: #777777;
+  margin-bottom: 5px;
+}
+
+.notif-timestamp {
+  font-size: 0.8rem;
+  color: #999999;
+  text-align: right;
+}

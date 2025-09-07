@@ -10,6 +10,13 @@ const loginRoutes = require('./routes/login.route')
 const signupRoutes = require('./routes/signup.route')
 const profileRoutes = require('./routes/profile.route')
 const forgetpassRoutes= require('./routes/forgetpass.route')
+const searchRoutes =require('./routes/search.route')
+const postMedicineRoutes = require('./routes/post-medicine.route')
+const DetailsRoutes = require('./routes/details.route')
+const BloodDonorRoutes = require('./routes/bloodDonor.route')
+const CartRoutes = require('./routes/cart.route.js')
+const notificationRoutes = require('./routes/notification.route');
+
 
 //middleware
 app.use(express.json())
@@ -18,6 +25,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 }));
+// Parse application/json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use((req, res, next)=> {
@@ -30,9 +38,15 @@ app.use('/login',loginRoutes)
 app.use('/signup',signupRoutes)
 app.use('/profile',profileRoutes)
 app.use("/forgot-password", forgetpassRoutes)
+app.use('/search',searchRoutes)
+app.use('/post-medicine', postMedicineRoutes)
+app.use('/details', DetailsRoutes)
+app.use('/register-donor', BloodDonorRoutes);
+app.use('/Cart', CartRoutes)
+app.use('/notifications', notificationRoutes);
 
 //connect to db
-const URI= 'mongodb+srv://hospify:hospify123@cluster0.urxgy.mongodb.net/Hospify?retryWrites=true&w=majority&appName=Cluster0'
+const URI=  "mongodb+srv://007munkasirchowdhury_db_user:hospify123Mun@hospify.p2wzply.mongodb.net/?retryWrites=true&w=majority&appName=Hospify";
 mongoose.connect(URI)
 .then(()=>{
     console.log('Connected to DB')

@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 const BloodDonorSchema = mongoose.Schema(
     {  
-        name: {
+        userId: {
             type: String,
             required: [true,"Please enter your name"]
         },

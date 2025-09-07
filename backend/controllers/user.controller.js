@@ -14,8 +14,7 @@ const get_all_users= async (req, res)=>{
 //get single user
 const get_user= async (req, res)=>{
     console.log('get user invoked')
-    const { id } = req.params
-    console.log(id)
+    const { id} = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: 'No such User'})
@@ -25,6 +24,7 @@ const get_user= async (req, res)=>{
     if (!user){
         return  res.status(400).json({error: 'No such User'})
     }
+    
     res.status(200).json(user)
 }
 
@@ -127,17 +127,38 @@ const delete_user= async (req, res)=>{
 
 //Update a User
 const update_user= async (req, res)=>{
-    const { id } = req.params
+    console.log('update user invoked')
+    const { id ,role} = req.params
+    const {  profilePicture, ...userData } = req.body;
+
 
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: 'No such User'})
     }
+    let user;
 
-    const user= await UserModel.findOneAndUpdate({_id: id}, {...req.body})
-    if (!user){
-        return  res.status(400).json({error: 'No such User'})
+    if (role === 'Patient') {
+        user = await PatientModel.findOneAndUpdate(
+            { _id: id },
+            { profilePicture, ...userData },
+            { new: true }
+        );
+    } else if (role === 'Doctor') {
+        user = await DoctorModel.findOneAndUpdate(
+            { _id: id },
+            { profilePicture, ...userData },
+            { new: true }
+        );
+    } else if (role === 'Staff') {
+        user = await StaffModel.findOneAndUpdate(
+            { _id: id },
+            { profilePicture, ...userData },
+            { new: true }
+        );
+    } else {
+        return res.status(400).json({ error: 'Invalid role' });
     }
-    res.status(200).json(user)
+    console.log("User:",user)
 }
 
 

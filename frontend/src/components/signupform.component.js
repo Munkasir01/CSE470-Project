@@ -144,6 +144,7 @@ const UserForm = () => {
   };
 
   return (
+    <div className="signup-form-container">
     <form className="signup-form" onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
 
@@ -228,6 +229,7 @@ const UserForm = () => {
 
       {error && <div className="error">{error}</div>}
     </form>
+  </div>
   );
 };
 

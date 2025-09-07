@@ -48,7 +48,7 @@ const Profile = () => {
   const updateUser = async (updatedData) => {
     console.log("Updating user data:", updatedData);
     const response = await fetch(`http://localhost:4001/profile/${role}/${id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },

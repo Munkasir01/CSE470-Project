@@ -2,20 +2,29 @@ const mongoose=require('mongoose');
 
 const MedicineSchema = mongoose.Schema(
     {  
-        prescriptionId: {
-            type: Number,
-            required: [true,"Please enter the ID"]
-        },
+        MedicineName: {
+            type: String,
+            required: true,},
+
+        prescriptionId: { type: mongoose.Schema.Types.ObjectId, ref: 'Prescription' },
         price: {
             type: Number,
             required: true,
         },
-        description: {
+        dosage: {
+            type: String,
+            required: true,
+        },
+        indication: {
             type: String,
             required: true,
         },
         brand_name: {
             type: String,
+            required: true,
+        },
+        stock: {
+            type: Number,
             required: true,
         },
         category: {
@@ -27,6 +36,6 @@ const MedicineSchema = mongoose.Schema(
         timestamps: true,
     }
 );
-const Medicine = mongoose.model('Medicine', MedicineSchema);
+const MedicineModel = mongoose.model('Medicine', MedicineSchema);
 
-module.exports = Medicine;
+module.exports = MedicineModel;
